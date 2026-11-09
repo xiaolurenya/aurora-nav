@@ -187,9 +187,9 @@ Cloudflare Workers 的 WebCrypto 限制 PBKDF2 迭代数 ≤ 100000，本地 Nod
 5. 点「确认导入并自动分类」，自动去重并按需新建分类
 
 ### 一键获取本地浏览器历史（A 方案：扩展）
-浏览器不允许网页直接读历史，所以用 [aurora-nav-history-extension.zip](<aurora-nav-history-extension.zip>)：
+浏览器不允许网页直接读历史，所以提供插件（也可直接在后台「批量导入 → 历史记录」页点「下载插件 ZIP」获取）：
 
-1. 下载并解压 zip
+1. 下载 [aurora-nav-history-extension.zip](<aurora-nav-history-extension.zip>) 或后台页的 ZIP，解压成一个文件夹
 2. chrome://extensions → 开发者模式 → 加载已解压的扩展程序 → 选解压后的目录
 3. 点工具栏 ✦ 图标，填**导航页地址**和**管理员密码**（已登录过 /admin 可留空）
 4. 选天数 / 条数，点「一键读取并导入」
@@ -197,7 +197,7 @@ Cloudflare Workers 的 WebCrypto 限制 PBKDF2 迭代数 ≤ 100000，本地 Nod
 > ⚠️ 导入接口需要管理员会话，必须填**管理员密码**（不是前台访问密码）。扩展只申请 history / storage / tabs / clipboardWrite，数据只发到你自己的导航页，无遥测。
 
 ### 其他方案
-- **B 本地脚本**：读 Chrome/Edge/Brave 的 History SQLite（Node 22+ 内置 node:sqlite），脚本随私有源码提供
+- **B 手动粘贴**：从浏览器导出历史 JSON，或用任意方式生成网址列表，粘贴到后台导入框
 - **C 手动兜底**：后台「批量导入 → 历史记录」粘贴 Chrome Takeout JSON 或每行一个网址
 
 纯文本格式示例：
