@@ -323,4 +323,6 @@ MIT · 随心改造，数据归你所有。
 
 > ⚙️ **安装时可自定义端口**：向导里会显示「访问端口」输入框，默认 4000；若与其它应用冲突可改成任意未占用端口（如 4100），容器内固定 8787 不变，桌面图标按你填的端口打开。
 
-> FPK 固定拉取 `xiaoluya/aurora-nav:1.2.0` 镜像（amd64），数据卷映射到 `${TRIM_PKGVAR}/data`，容器端口 8787 / 宿主机 4000。
+> FPK 固定拉取 `xiaoluya/aurora-nav:1.2.1` 镜像（amd64），数据卷映射到 `${TRIM_PKGVAR}/data`，容器端口 8787 / 宿主机 4000。
+
+> 🆕 **v1.2.1 修复了应用图标**：若之前安装的 FPK 显示灰色默认图标，请卸载后安装 [Releases 最新版](https://github.com/xiaolurenya/aurora-nav/releases/latest) 的 1.2.1 包；应用中心可能缓存旧图标，重装即可显示紫蓝四角星 Logo。
