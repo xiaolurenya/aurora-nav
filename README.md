@@ -4,7 +4,7 @@
 
 > 🔐 **首次登录**：前台密码 `123456` ｜ 后台 `admin` / `admin123` —— **部署后请立刻到「安全与账号」修改**。
 > 
-> 📦 [Releases 下载（飞牛 FPK / 扩展）](https://github.com/xiaolurenya/aurora-nav/releases) ｜ [Docker Hub](https://hub.docker.com/r/xiaoluya/aurora-nav) ｜ [在线演示](https://aurora-nav.435675554-57b.workers.dev)
+> 📦 [Releases 下载（飞牛 FPK / 扩展）](https://github.com/xiaolurenya/aurora-nav/releases) ｜ [Docker Hub](https://hub.docker.com/r/xiaoluya/aurora-nav)
 
 ---
 
