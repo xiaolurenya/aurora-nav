@@ -11,6 +11,18 @@
 
 ---
 
+## 📸 界面预览（电脑 / 平板 / 手机 · 前台 + 后台）
+
+| 设备 | 前台导航 | 后台控制台 |
+| --- | --- | --- |
+| 💻 电脑 | ![电脑前台](<preview/shot-home-desktop.png>) | ![电脑后台](<preview/shot-admin-desktop.png>) |
+| 📱 平板 | ![平板前台](<preview/shot-home-tablet.png>) | ![平板后台](<preview/shot-admin-tablet.png>) |
+| 📲 手机 | ![手机前台](<preview/shot-home-phone.png>) | ![手机后台](<preview/shot-admin-phone.png>) |
+
+> 设备自适应会自动识别电脑 / 平板 / 手机 / 电视，按比例调整列数、卡片密度与间距。手机端已针对流畅度优化（关闭毛玻璃合成、离屏分区延迟渲染、惯性滚动）。
+
+---
+
 ## 📦 一键部署（推荐，无需源码）
 
     docker pull xiaoluya/aurora-nav:latest
@@ -237,6 +249,7 @@ Cloudflare Workers 的 WebCrypto 限制 PBKDF2 迭代数 ≤ 100000，本地 Nod
 
 | 文件 | 说明 |
 | --- | --- |
+| [Releases](https://github.com/xiaolurenya/aurora-nav/releases) | **飞牛 FPK 安装包**与扩展 ZIP / CRX 下载 |
 | [docker-compose.yml](<docker-compose.yml>) | 直接拉 Docker Hub 镜像，无需源码 |
 | [aurora-nav-history-extension.zip](<aurora-nav-history-extension.zip>) | 扩展 ZIP，解压后用「加载已解压的扩展程序」安装 |
 | [aurora-nav-history-extension.crx](<aurora-nav-history-extension.crx>) | 扩展 CRX，可直接拖入扩展页安装 |
@@ -290,19 +303,9 @@ https://github.com/xiaolurenya/aurora-nav
 
 MIT · 随心改造，数据归你所有。
 
-## 📸 界面预览（电脑 / 平板 / 手机 · 前台 + 后台）
-
-| 设备 | 前台导航 | 后台控制台 |
-| --- | --- | --- |
-| 💻 电脑 | ![电脑前台](<preview/shot-home-desktop.png>) | ![电脑后台](<preview/shot-admin-desktop.png>) |
-| 📱 平板 | ![平板前台](<preview/shot-home-tablet.png>) | ![平板后台](<preview/shot-admin-tablet.png>) |
-| 📲 手机 | ![手机前台](<preview/shot-home-phone.png>) | ![手机后台](<preview/shot-admin-phone.png>) |
-
-> 设备自适应会自动识别电脑 / 平板 / 手机 / 电视，按比例调整列数、卡片密度与间距。手机端已针对流畅度优化（关闭毛玻璃合成、离屏分区延迟渲染、惯性滚动）。
-
 ## 🆕 近期亮点
 
-- **飞牛 FPK 应用安装包**：[aurora-nav.fpk](<aurora-nav.fpk>) 可在飞牛应用中心手动安装，桌面直接打开，数据落在应用数据目录，卸载重装不丢配置
+- **飞牛 FPK 应用安装包**：[aurora-nav.fpk](https://github.com/xiaolurenya/aurora-nav/releases/tag/v1.2.0) 可在飞牛应用中心手动安装，桌面直接打开，数据落在应用数据目录，卸载重装不丢配置
 - **分类自由排序**：后台「分类管理」支持置顶 / 上移 / 下移 / 拖拽，指定分类在首页优先显示
 - **自定义图标**：网站编辑弹窗支持图片 URL、本地上传（自动压缩 128px 内嵌）或 emoji，实时预览、一键清除
 - **行内快改**：网站管理里双击名称 / 网址直接修改，回车保存、Esc 取消
@@ -316,7 +319,7 @@ MIT · 随心改造，数据归你所有。
 
 ## 📦 飞牛应用中心安装（FPK）
 
-1. 下载 [aurora-nav.fpk](<aurora-nav.fpk>)
+1. 到 [Releases 下载页](https://github.com/xiaolurenya/aurora-nav/releases/tag/v1.2.0) 下载 **aurora-nav.fpk**（同页还有浏览器扩展 ZIP / CRX）
 2. 飞牛 OS → 应用中心 → 手动安装 / 导入 FPK → 选择该文件
 3. 安装完成后桌面出现「Aurora Nav 极光导航」，点开即用；也可 `http://飞牛IP:4000` 直连
 4. 首次默认：前台 `123456` / 后台 `admin` `admin123` —— **装完立刻到「安全与账号」修改**
