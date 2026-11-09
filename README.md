@@ -1,13 +1,10 @@
 # ✦ Aurora Nav · 极光导航
 
-> 一个漂亮的、带完整后台的个人导航页。**前台必须输入密码才能看到内容**，后台添加网址会**自动识别类型并自动建立分类**，支持**浏览器书签 / 历史记录导入并自动归类**，内置**账号密码保险箱**，还能**自动识别内外网并切换链接**。
+<p align="center"><img src="preview/logo.png" width="120" alt="Aurora Nav"></p>
 
-本项目提供两种部署方式，核心源码为私有，公开仓库只提供文档、部署配置与可直接拉取的 Docker 镜像。
-
-| 部署方式 | 运行位置 | 数据存储 | 适合 |
-| --- | --- | --- | --- |
-| **Docker Compose / Docker Hub 镜像** | 飞牛 FnOS / 群晖 / 绿联 / 极空间 / 威联通 / 任意 NAS | 本地 data/data.json | 家庭内网、数据完全自己掌控 |
-| **Cloudflare Workers + KV** | 全球边缘节点 | Cloudflare KV | 随时随地外网访问、免费额度 |
+> 🔐 **首次登录**：前台密码 `123456` ｜ 后台 `admin` / `admin123` —— **部署后请立刻到「安全与账号」修改**。
+> 
+> 📦 [Releases 下载（飞牛 FPK / 扩展）](https://github.com/xiaolurenya/aurora-nav/releases) ｜ [Docker Hub](https://hub.docker.com/r/xiaoluya/aurora-nav) ｜ [在线演示](https://aurora-nav.435675554-57b.workers.dev)
 
 ---
 
