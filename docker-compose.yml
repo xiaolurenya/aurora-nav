@@ -1,0 +1,29 @@
+# Aurora Nav —— NAS Docker Compose 部署（群晖 / 绿联 / 极空间 / 威联通 / 通用 Linux）
+# 用法：把本目录放到 NAS 的 docker 目录，然后执行  docker compose up -d
+services:
+  aurora-nav:
+    # 直接拉 Docker Hub 镜像；如需本地构建，把下面一行改成 build: .
+    image: xiaoluya/aurora-nav:latest
+    # build: .
+    container_name: aurora-nav
+    restart: unless-stopped
+    ports:
+      - "4000:8787"          # 宿主机 4000 → 容器 8787（按 NAS 要求使用 4000）
+    volumes:
+      - ./data:/app/data     # 所有配置/网站/保险箱都持久化在这里
+    environment:
+      TZ: Asia/Shanghai
+      PORT: 8787
+      DATA_DIR: /app/data
+      # ⚠️ 首次部署建议改成自己的强密码，仅首次初始化生效
+      NAV_ADMIN_USER: admin
+      NAV_ADMIN_PASSWORD: admin123
+      NAV_VIEW_PASSWORD: "123456"
+      # 留空则自动生成；多实例/迁移时请固定一个长随机串
+      NAV_SECRET: ""
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8787/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
