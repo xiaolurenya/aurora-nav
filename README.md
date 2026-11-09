@@ -187,10 +187,12 @@ Cloudflare Workers 的 WebCrypto 限制 PBKDF2 迭代数 ≤ 100000，本地 Nod
 5. 点「确认导入并自动分类」，自动去重并按需新建分类
 
 ### 一键获取本地浏览器历史（A 方案：扩展）
-浏览器不允许网页直接读历史，所以提供插件（也可直接在后台「批量导入 → 历史记录」页点「下载插件 ZIP」获取）：
+浏览器不允许网页直接读历史，所以提供 ZIP 和 CRX 两种安装包（后台「批量导入 → 历史记录」页可直接下载）：
 
-1. 下载 [aurora-nav-history-extension.zip](<aurora-nav-history-extension.zip>) 或后台页的 ZIP，解压成一个文件夹
-2. chrome://extensions → 开发者模式 → 加载已解压的扩展程序 → 选解压后的目录
+1. 下载 [ZIP](<aurora-nav-history-extension.zip>) 或 [CRX](<aurora-nav-history-extension.crx>)
+2a. **ZIP 方式（推荐）**：解压成文件夹 → chrome://extensions 开「开发者模式」→ 点左上角「**加载已解压的扩展程序**」选该文件夹
+   > ⚠️ 不要点「打包扩展程序」，那是生成 crx 用的，会要求私钥并报错。
+2b. **CRX 方式**：把 .crx 直接拖进 chrome://extensions 页面；若 Chrome 拦截第三方 CRX，改用 ZIP 方式
 3. 点工具栏 ✦ 图标，填**导航页地址**和**管理员密码**（已登录过 /admin 可留空）
 4. 选天数 / 条数，点「一键读取并导入」
 
@@ -237,7 +239,8 @@ Cloudflare Workers 的 WebCrypto 限制 PBKDF2 迭代数 ≤ 100000，本地 Nod
 | 文件 | 说明 |
 | --- | --- |
 | [docker-compose.yml](<docker-compose.yml>) | 直接拉 Docker Hub 镜像，无需源码 |
-| [aurora-nav-history-extension.zip](<aurora-nav-history-extension.zip>) | Chrome/Edge 历史一键导入扩展，解压后加载 |
+| [aurora-nav-history-extension.zip](<aurora-nav-history-extension.zip>) | 扩展 ZIP，解压后用「加载已解压的扩展程序」安装 |
+| [aurora-nav-history-extension.crx](<aurora-nav-history-extension.crx>) | 扩展 CRX，可直接拖入扩展页安装 |
 | [docs/](<docs/>) | 完整教程：快速开始 / NAS / Cloudflare / 后台功能 / 导入与扩展 / 常见问题 |
 | [preview/](<preview/>) | 界面效果截图 |
 | [.env.example](<.env.example>) | 环境变量示例 |
