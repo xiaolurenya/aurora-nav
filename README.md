@@ -187,9 +187,9 @@ Cloudflare Workers 的 WebCrypto 限制 PBKDF2 迭代数 ≤ 100000，本地 Nod
 5. 点「确认导入并自动分类」，自动去重并按需新建分类
 
 ### 一键获取本地浏览器历史（A 方案：扩展）
-浏览器不允许网页直接读历史，所以提供 ZIP 和 CRX 两种安装包（后台「批量导入 → 历史记录」页可直接下载）：
+浏览器不允许网页直接读历史，所以提供 **ZIP** 和 **CRX** 两种安装包（后台「批量导入 → 历史记录」页可直接下载）：
 
-1. 下载 [ZIP](<aurora-nav-history-extension.zip>) 或 [CRX](<aurora-nav-history-extension.crx>)
+1. 下载 [ZIP](<aurora-nav-history-extension.zip>) 或 [CRX](<aurora-nav-history-extension.crx>)（后台页也有按钮）
 2a. **ZIP 方式（推荐）**：解压成文件夹 → chrome://extensions 开「开发者模式」→ 点左上角「**加载已解压的扩展程序**」选该文件夹
    > ⚠️ 不要点「打包扩展程序」，那是生成 crx 用的，会要求私钥并报错。
 2b. **CRX 方式**：把 .crx 直接拖进 chrome://extensions 页面；若 Chrome 拦截第三方 CRX，改用 ZIP 方式
@@ -197,7 +197,6 @@ Cloudflare Workers 的 WebCrypto 限制 PBKDF2 迭代数 ≤ 100000，本地 Nod
 4. 选天数 / 条数，点「一键读取并导入」
 
 > ⚠️ 导入接口需要管理员会话，必须填**管理员密码**（不是前台访问密码）。扩展只申请 history / storage / tabs / clipboardWrite，数据只发到你自己的导航页，无遥测。
-
 ### 其他方案
 - **B 手动粘贴**：从浏览器导出历史 JSON，或用任意方式生成网址列表，粘贴到后台导入框
 - **C 手动兜底**：后台「批量导入 → 历史记录」粘贴 Chrome Takeout JSON 或每行一个网址
