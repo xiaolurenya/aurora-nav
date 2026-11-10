@@ -11,6 +11,7 @@ services:
       - "4000:8787"          # 宿主机 4000 → 容器 8787（按 NAS 要求使用 4000）
     volumes:
       - ./data:/app/data     # 所有配置/网站/保险箱都持久化在这里
+      - /var/run/docker.sock:/var/run/docker.sock  # 后台一键更新用
     environment:
       TZ: Asia/Shanghai
       PORT: 8787
@@ -21,6 +22,8 @@ services:
       NAV_VIEW_PASSWORD: "123456"
       # 留空则自动生成；多实例/迁移时请固定一个长随机串
       NAV_SECRET: ""
+      # 如果宿主机 docker 组 gid 不是 994（用 stat -c %g /var/run/docker.sock 查），改成实际值
+      DOCKER_GID: "994"
     healthcheck:
       test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8787/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
       interval: 30s
