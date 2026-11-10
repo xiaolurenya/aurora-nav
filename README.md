@@ -268,3 +268,7 @@ MIT。随便改，数据是你自己的。
 ## 本地构建用户升级
 
 用 `build: .` 而不是 `image:` 安装的，`docker compose pull` 不会更新源码。先把最新源码更新到项目目录（私有仓库或你自己的副本，别删 data/），然后在 compose 目录执行 `./upgrade.sh`，或手动 `git pull && docker compose build --pull && docker compose up -d`。脚本会自动识别 build 模式、备份 data/、不删卷。
+
+## 后台一键更新
+
+从 v1.4.8 起，飞牛 FPK 和 Docker Compose 都默认挂载 `/var/run/docker.sock`，镜像里带 docker CLI。后台检测到新版本后点「一键更新」，会由独立进程拉新镜像、用相同数据卷重建容器，90 秒倒计时后自动刷新，数据不丢。已安装的用户运行一次 `./upgrade.sh` 会幂等补挂 socket。若宿主机 docker 组 gid 不是 994，用 `stat -c %g /var/run/docker.sock` 查出来，在 compose 里改 `DOCKER_GID`。
