@@ -329,3 +329,28 @@ MIT · 随心改造，数据归你所有。
 > 🛠 **v1.2.2 修复了应用中心点「打开」无反应**：装过旧版的请卸载后安装 [Releases 最新版](https://github.com/xiaolurenya/aurora-nav/releases/latest)。同时保留新 Logo 与多行图文应用介绍。
 
 > 🆕 **v1.2.2 修复了应用图标**：若之前安装的 FPK 显示灰色默认图标，请卸载后安装 [Releases 最新版](https://github.com/xiaolurenya/aurora-nav/releases/latest) 的 1.2.1 包；应用中心可能缓存旧图标，重装即可显示紫蓝四角星 Logo。
+
+## 🔄 飞牛 FPK 用户怎么更新
+
+> 第三方**手动安装的 FPK 不会自动收到更新推送**，`manifest.version` 只是版本号。要升到新版，需要安装新包或换镜像 tag。
+
+### 方式一（推荐）· 重装 FPK，保留数据
+
+1. 到 [Releases latest](https://github.com/xiaolurenya/aurora-nav/releases/latest) 下载最新版 `aurora-nav.fpk`
+2. 飞牛应用中心 → 卸载当前 Aurora Nav，**卸载向导里务必选「保留数据（推荐）」**
+3. 重新导入安装新 FPK，向导里可重新设置访问端口（默认 4000）
+4. 站点、分类、密码、设置、保险箱**全部保留**，桌面入口重新生成
+
+### 方式二 · 应用中心「升级」入口
+
+若你的飞牛版本对手动安装的应用提供「升级」，直接导入新 FPK 即可；升级向导会显示 changelog 并允许重填端口，数据自动保留。
+
+### 方式三 · 手动 Compose 用户
+
+把 `docker-compose.yml` 里的镜像 tag 改成 `xiaoluya/aurora-nav:1.3.0`（或 `latest`），然后：
+
+    docker compose pull && docker compose up -d
+
+`data/` 数据卷保持不变，所有站点与设置自动保留。
+
+> ⚠️ 旧版**上传过的自定义图标**仍是 128px，升级后请在后台重新上传一次即可享受 512px 高清 + 自动去白边铺满；自动抓取的图标会自动变大变清晰。
