@@ -301,6 +301,7 @@ https://github.com/xiaolurenya/aurora-nav
 MIT · 随心改造，数据归你所有。
 
 ## 🆕 近期亮点
+- **大图标 · 高清 · 自动填满**：前台图标放大到 60px，Logo 自动铺满圆角方块；本地上传升到 512px 并智能裁白边、SVG 保留矢量，自动抓取优先 apple-touch-icon / og:image 大图；可切「完整显示（留白）」
 
 - **飞牛 FPK 应用安装包**：[aurora-nav.fpk](https://github.com/xiaolurenya/aurora-nav/releases/tag/v1.2.0) 可在飞牛应用中心手动安装，桌面直接打开，数据落在应用数据目录，卸载重装不丢配置
 - **分类自由排序**：后台「分类管理」支持置顶 / 上移 / 下移 / 拖拽，指定分类在首页优先显示
