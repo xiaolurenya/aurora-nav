@@ -66,7 +66,7 @@
 
 内外网判定：127/10/192.168/172.16-31、`*.local`、`*.lan`、`*.home.arpa`，以及域名里带 nas、router、synology、portainer、jellyfin 之类的算内网，公网域名算外网。两个地址都填了就按当前网络挑。也可以配一个只有内网能通的探测 URL 来判得更准。
 
-图标：先找站点自己的 apple-touch-icon / rel=icon / og:image，再试 favicon.ico，然后 Google S2、DuckDuckGo、icon.horse、favicon.im；都拿不到就按域名哈希生成彩色渐变首字母。图标只保留一种格式：固定 60px 圆角框，图标自己在框里自适应。上传的、自动抓的、旧图、以后新增的站点，页面加载时自动把透明/圆角外区域用图标主色填成不透明、裁内容边界后 cover 放大到 512，整格铺满、不露黑边、不小一圈；高质量插值尽量不糊，自动抓取优先 256px 大图。后台上传的图片和自动抓取的图标都在页面显示时自动适应固定框：填透明区、裁内容、放大铺满，SVG 保持矢量；旧图不用重传。
+图标：先找站点自己的 apple-touch-icon / rel=icon / og:image，再试 favicon.ico，然后 Google S2、DuckDuckGo、icon.horse、favicon.im；都拿不到就按域名哈希生成彩色渐变首字母。图标只保留一种格式：固定 60px 圆角框，整张图常态就 cover 放大到顶满四边、由圆角框裁成正好的满格。上传的、自动抓的、旧图、以后新增站点都一样，鼠标在不在上面都铺满；hover 只有一点轻微动效。不再自动改 PNG 像素，图标保持原样，自动抓取优先 256px 大图以免模糊。后台上传的图片和自动抓取的图标都原样保留，前台统一用 60px 圆角框 cover 铺满，SVG 保持矢量；旧图不用重传。
 
 ---
 
@@ -226,7 +226,7 @@ services:
 
 到 [Releases](https://github.com/xiaolurenya/aurora-nav/releases/latest) 下载 `aurora-nav.fpk`，飞牛 OS → 应用中心 → 手动安装 / 导入 FPK，选文件。装完桌面出现「Aurora Nav 极光导航」，点开就能用，也可以 `http://飞牛IP:4000` 直接访问。
 
-安装向导里有「访问端口」，默认 4000，跟别的应用冲突就改一个没被占的（比如 4100）；容器内固定 8787，桌面图标按你填的端口打开。数据在应用数据目录 `${TRIM_PKGVAR}/data`，卸载或重装不丢。FPK 固定拉 `xiaoluya/aurora-nav:1.4.3`（amd64）。
+安装向导里有「访问端口」，默认 4000，跟别的应用冲突就改一个没被占的（比如 4100）；容器内固定 8787，桌面图标按你填的端口打开。数据在应用数据目录 `${TRIM_PKGVAR}/data`，卸载或重装不丢。FPK 固定拉 `xiaoluya/aurora-nav:1.4.4`（amd64）。
 
 默认密码还是前台 `123456` / 后台 `admin` `admin123`，装完记得改。
 
