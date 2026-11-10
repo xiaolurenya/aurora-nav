@@ -42,6 +42,8 @@ OLD=$(docker compose -p "$PROJ" -f "$CFG" images -q 2>/dev/null | head -1 || tru
 
 # 5) 升级
 if [ "$MODE" = "build" ]; then
+  echo "ℹ️  本地构建模式：请确认本目录源码已是最新版（公开仓库只有文档，源码在私有仓库/你自己的项目副本）"
+  echo "    若还没更新源码，先执行：git pull  或重新下载最新源码覆盖本目录（不要删 data/）"
   docker compose -p "$PROJ" -f "$CFG" build --pull
 else
   docker compose -p "$PROJ" -f "$CFG" pull
