@@ -21,6 +21,33 @@ else
   echo "ℹ️ 首次安装，暂无 data/ 目录"
 fi
 
+# 1.5) 幂等补挂 docker.sock（让旧安装也获得后台一键更新能力）
+if ! grep -q "/var/run/docker.sock:/var/run/docker.sock" "$CFG"; then
+  python3 - "$CFG" <<'PYEOF'
+import sys, pathlib
+p = pathlib.Path(sys.argv[1])
+lines = p.read_text().splitlines()
+out, inserted, in_volumes = [], False, False
+for i, line in enumerate(lines):
+    out.append(line)
+    if line.strip().startswith("volumes:"):
+        in_volumes = True; continue
+    if in_volumes and line.strip().startswith("- ") and ":/app/data" in line and not inserted:
+        indent = line[:len(line)-len(line.lstrip())]
+        out.append(indent + "# 后台一键更新需要调用宿主机 Docker")
+        out.append(indent + "- /var/run/docker.sock:/var/run/docker.sock")
+        inserted = True
+    if in_volumes and line.strip() and not line.startswith((" ", "\t", "#")):
+        in_volumes = False
+if not inserted:
+    print("⚠️  未能自动补挂 docker.sock，请手动在 volumes 下加一行： - /var/run/docker.sock:/var/run/docker.sock")
+else:
+    p.write_text("\n".join(out) + "\n")
+    print("🔌 已补挂 docker.sock，以后可在后台一键更新")
+PYEOF
+else:
+  echo "🔌 docker.sock 已挂载"
+fi
 # 2) 自动把固定旧版本 tag 改成 latest（用户不用手改 compose）
 if grep -qE "image:\s*xiaoluya/aurora-nav:[0-9]" "$CFG"; then
   sed -i -E "s#(image:\s*xiaoluya/aurora-nav:)[0-9][0-9.]*#\1latest#" "$CFG"
