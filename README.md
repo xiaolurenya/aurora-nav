@@ -334,6 +334,21 @@ MIT · 随心改造，数据归你所有。
 
 > 第三方**手动安装的 FPK 不会自动收到更新推送**，`manifest.version` 只是版本号。要升到新版，需要安装新包或换镜像 tag。
 
+### 🥇 最方便 · 后台一键更新（v1.3.1+ 内置）
+
+后台侧栏会显示**当前版本号**，并在检测到 [Releases](https://github.com/xiaolurenya/aurora-nav/releases) 有新版本时**自动弹窗**：
+
+- 点「一键更新」→ 自动拉新镜像并重建容器（**数据卷不删**）
+- **90 秒倒计时**，每 3 秒探测一次服务，恢复即自动刷新；网络慢会继续等，超时只提示不误报
+- 也可随时点侧栏「⚡ 更新」按钮手动检查
+- 若容器未开放自动重建，弹窗会给出**一键复制命令**和 [upgrade.sh](<upgrade.sh>) 下载；在 NAS 的 compose 目录粘贴一次即可
+
+```bash
+./upgrade.sh      # 自动备份 data/ → 改 tag 为 latest → pull → up -d → 健康检查
+```
+
+> `upgrade.sh` 绝不执行 `down -v` / 删除 `data/`；升级前自动备份到 `data-backup-时间戳/`。
+
 ### 方式一（推荐）· 重装 FPK，保留数据
 
 1. 到 [Releases latest](https://github.com/xiaolurenya/aurora-nav/releases/latest) 下载最新版 `aurora-nav.fpk`
