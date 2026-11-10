@@ -66,7 +66,7 @@
 
 内外网判定：127/10/192.168/172.16-31、`*.local`、`*.lan`、`*.home.arpa`，以及域名里带 nas、router、synology、portainer、jellyfin 之类的算内网，公网域名算外网。两个地址都填了就按当前网络挑。也可以配一个只有内网能通的探测 URL 来判得更准。
 
-图标：先找站点自己的 apple-touch-icon / rel=icon / og:image，再试 favicon.ico，然后 Google S2、DuckDuckGo、icon.horse、favicon.im；都拿不到就按域名哈希生成彩色渐变首字母。图标只保留一种格式：60px 圆角方块，整张图铺满。上传的图只等比缩到 512px、原样保留自带的圆角；自动抓取的图同样放进这一种方块里。不再自动抠底、裁边或缩放内容，所有站点看起来一致。后台上传的图片只等比缩到 512px，整张原样保留；前台统一放进同一个 60px 圆角方块显示，SVG 保持矢量。
+图标：先找站点自己的 apple-touch-icon / rel=icon / og:image，再试 favicon.ico，然后 Google S2、DuckDuckGo、icon.horse、favicon.im；都拿不到就按域名哈希生成彩色渐变首字母。图标只保留一种格式：60px 圆角方块，整张图铺满。上传的图会自动裁掉四周透明边再缩到 512px，前台 img 精确 60×60 cover 铺满；自动抓取的图同样放进这一种方块里，所有站点看起来一致。后台上传的图片自动裁掉四周透明边再缩到 512px，前台统一放进同一个 60px 圆角方块铺满显示，SVG 保持矢量。
 
 ---
 
@@ -226,7 +226,7 @@ services:
 
 到 [Releases](https://github.com/xiaolurenya/aurora-nav/releases/latest) 下载 `aurora-nav.fpk`，飞牛 OS → 应用中心 → 手动安装 / 导入 FPK，选文件。装完桌面出现「Aurora Nav 极光导航」，点开就能用，也可以 `http://飞牛IP:4000` 直接访问。
 
-安装向导里有「访问端口」，默认 4000，跟别的应用冲突就改一个没被占的（比如 4100）；容器内固定 8787，桌面图标按你填的端口打开。数据在应用数据目录 `${TRIM_PKGVAR}/data`，卸载或重装不丢。FPK 固定拉 `xiaoluya/aurora-nav:1.3.9`（amd64）。
+安装向导里有「访问端口」，默认 4000，跟别的应用冲突就改一个没被占的（比如 4100）；容器内固定 8787，桌面图标按你填的端口打开。数据在应用数据目录 `${TRIM_PKGVAR}/data`，卸载或重装不丢。FPK 固定拉 `xiaoluya/aurora-nav:1.4.0`（amd64）。
 
 默认密码还是前台 `123456` / 后台 `admin` `admin123`，装完记得改。
 
