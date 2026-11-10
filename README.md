@@ -264,3 +264,7 @@ Compose / 自己构建的用户，在 compose 目录放一个 `upgrade.sh` 然�
 ## License
 
 MIT。随便改，数据是你自己的。
+
+## 本地构建用户升级
+
+用 `build: .` 而不是 `image:` 安装的，`docker compose pull` 不会更新源码。先把最新源码更新到项目目录（私有仓库或你自己的副本，别删 data/），然后在 compose 目录执行 `./upgrade.sh`，或手动 `git pull && docker compose build --pull && docker compose up -d`。脚本会自动识别 build 模式、备份 data/、不删卷。
