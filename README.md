@@ -272,3 +272,9 @@ MIT。随便改，数据是你自己的。
 ## 后台一键更新
 
 从 v1.4.8 起，飞牛 FPK 和 Docker Compose 都默认挂载 `/var/run/docker.sock`，镜像里带 docker CLI。后台检测到新版本后点「一键更新」，会由独立进程拉新镜像、用相同数据卷重建容器，90 秒倒计时后自动刷新，数据不丢。已安装的用户运行一次 `./upgrade.sh` 会幂等补挂 socket。若宿主机 docker 组 gid 不是 994，用 `stat -c %g /var/run/docker.sock` 查出来，在 compose 里改 `DOCKER_GID`。
+
+## 飞牛 APP 与首次登录
+
+桌面入口走飞牛统一网关（iframe 同源 HTTPS `/app/aurora-nav`），APP 里点图标也能打开，不再拼 `http://IP:端口` 被拦成「无法访问此页面」；直连 IP:端口 仍可用。容器运行 UID/GID 为飞牛默认 1000，其他机器可改 `DOCKER_GID`。
+
+首次打开登录页会有一张引导卡：前台密码 `123456`、后台 `admin / admin123`，可复制、可关闭；改过密码后自动不再显示。装完请第一时间到后台「安全与账号」修改。
